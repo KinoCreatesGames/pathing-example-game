@@ -888,7 +888,7 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "10";
+	app.meta.h["build"] = "11";
 	app.meta.h["company"] = "KinoCreatesGames";
 	app.meta.h["file"] = "haxe-flixel-template";
 	app.meta.h["name"] = "Pathing Game";
@@ -48162,6 +48162,19 @@ var game_char_Player = function(x,y,actorData,path) {
 	this.makeGraphic(16,16,-1,true);
 	this.walkPath = path;
 	this.set_path(new flixel_util_FlxPath(this.walkPath));
+	this.playerPath = new flixel_FlxSprite(0,0);
+	this.playerPath.makeGraphic(flixel_FlxG.width,flixel_FlxG.height,0);
+	var _g = 0;
+	var _g1 = this.path.get_nodes().length;
+	while(_g < _g1) {
+		var index = _g++;
+		if(index > 0) {
+			var lastPoint = this.path.get_nodes()[index - 1];
+			var currPoint = this.path.get_nodes()[index];
+			flixel_util_FlxSpriteUtil.drawLine(this.playerPath,lastPoint.x,lastPoint.y,currPoint.x,currPoint.y,{ thickness : 4, color : -15790578});
+		}
+	}
+	flixel_FlxG.game._state.add(this.playerPath);
 	this.ai = new game_State($bind(this,this.idle));
 	this.startPathing();
 };
@@ -48524,6 +48537,7 @@ game_states_TileState.prototype = $extend(game_states_BaseTileState.prototype,{
 				Chance = 50;
 			}
 			var sign = flixel_FlxG.random.float(0,100) < Chance ? 1 : -1;
+			haxe_Log.trace("Spawn Enemy",{ fileName : "source/game/states/TileState.hx", lineNumber : 125, className : "game.states.TileState", methodName : "updateSpawnEnemies"});
 			var spawnPointX = Math.random() * (flixel_FlxG.width / 2) * sign;
 			var spawnPointY = Math.random() * (flixel_FlxG.height / 2) * sign;
 			var topBot = [this.top,this.bottom];
@@ -67635,7 +67649,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 349441;
+	this.version = 899591;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
