@@ -24,7 +24,7 @@ class TileState extends BaseTileState {
 	override public function createLevelInformation() {
 		// TODO: For Debug Disable AutoPause
 		FlxG.autoPause = false;
-		spawnTimer = SPAWN_CD;
+		spawnTimer = 0;
 		super.createLevelInformation();
 		// The layer for any tiles to show off the world;
 		var tileLayer:TiledTileLayer = cast(map.getLayer('Floor'));

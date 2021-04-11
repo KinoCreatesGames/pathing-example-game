@@ -31,7 +31,6 @@ class TitleState extends FlxState {
 		createPressStart();
 		createButtons();
 		createControls();
-		createCredits();
 		createVersion();
 		super.create();
 	}
@@ -56,54 +55,13 @@ class TitleState extends FlxState {
 		playButton.screenCenter();
 		playButton.y += y;
 		y += 40;
-		continueButton = new TextButton(0, 0, Globals.TEXT_CONTINUE,
-			Globals.FONT_N, clickContinue);
-		continueButton.hoverColor = KColor.BURGUNDY;
-		continueButton.clickColor = KColor.BURGUNDY;
-		continueButton.screenCenter();
-		continueButton.y += y;
-		y += 40;
-		optionsButton = new TextButton(0, 0, Globals.TEXT_OPTIONS,
-			Globals.FONT_N, clickOptions);
-		optionsButton.hoverColor = KColor.BURGUNDY;
-		optionsButton.clickColor = KColor.BURGUNDY;
-		optionsButton.screenCenter();
-		optionsButton.y += y;
-		y += 40;
-		creditsButton = new TextButton(0, 0, Globals.TEXT_CREDITS,
-			Globals.FONT_N, clickCredits);
-		creditsButton.hoverColor = KColor.BURGUNDY;
-		creditsButton.clickColor = KColor.BURGUNDY;
-		creditsButton.screenCenter();
-		creditsButton.y += y;
-		y += 40;
-		#if desktop
-		exitButton = new TextButton(0, 0, Globals.TEXT_EXIT, Globals.FONT_N,
-			clickExit);
-		exitButton.hoverColor = KColor.BURGUNDY;
-		exitButton.clickColor = KColor.BURGUNDY;
-		exitButton.screenCenter();
-		exitButton.y += y;
-		#end
+
 		// Add Buttons
 
 		playButton.canClick = false;
 		playButton.alpha = 0;
-		continueButton.canClick = false;
-		continueButton.alpha = 0;
-		optionsButton.canClick = false;
-		optionsButton.alpha = 0;
-		creditsButton.canClick = false;
-		creditsButton.alpha = 0;
+
 		add(playButton);
-		// add(continueButton);
-		// add(optionsButton);
-		add(creditsButton);
-		#if desktop
-		exitButton.canClick = false;
-		exitButton.alpha = 0;
-		add(exitButton);
-		#end
 	}
 
 	override public function update(elapsed:Float) {
@@ -122,64 +80,17 @@ class TitleState extends FlxState {
 		if (!pressStartText.visible && !pressStartText.isFlickering()
 			&& completeFadeStart == false) {
 			playButton.fadeIn(fadeTime);
-			if (playButton.alpha >= .9) {
-				continueButton.fadeIn(fadeTime);
-			}
-			if (continueButton.alpha >= .9) {
-				optionsButton.fadeIn(fadeTime);
-			}
-			if (optionsButton.alpha >= .9) {
-				creditsButton.fadeIn(fadeTime);
-				#if !desktop
-				completeFadeStart = true;
-				#end
-			}
-
-			#if desktop
-			if (creditsButton.alpha >= .9) {
-				exitButton.fadeIn(fadeTime);
-				completeFadeStart = true;
-			}
-			exitButton.visible = true;
-			#end
+			completeFadeStart = true;
 		}
 
 		if (completeFadeStart) {
 			playButton.canClick = true;
-			continueButton.canClick = true;
-			optionsButton.canClick = true;
-			creditsButton.canClick = true;
-			#if desktop
-			exitButton.canClick = true;
-			#end
 		}
 	}
 
 	public function clickStart() {
-		// var introText = DepotData.Cutscene.lines.getByFn((el) ->
-		// 	el.name == 'Intro');
-		// FlxG.switchState(new CutsceneState(new HubState(),
-		// 	introText.cutsceneText));
 		FlxG.switchState(new LevelOneState());
 	}
-
-	public function clickContinue() {
-		// openSubState(new LoadSubState());
-	}
-
-	public function clickOptions() {
-		// openSubState(new OptionsSubState());
-	}
-
-	public function clickCredits() {
-		// openSubState(new CreditsSubState());
-	}
-
-	#if desktop
-	public function clickExit() {
-		Sys.exit(0);
-	}
-	#end
 
 	public function createControls() {
 		var textWidth = 200;
