@@ -13,8 +13,6 @@ class Player extends Actor {
 		makeGraphic(16, 16, KColor.WHITE, true);
 		walkPath = path;
 		this.path = new FlxPath(walkPath);
-		this.path.debugColor = KColor.RICH_BLACK_FORGRA;
-		this.path.drawDebug();
 		ai = new State(idle);
 		this.startPathing();
 	}
