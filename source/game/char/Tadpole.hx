@@ -11,6 +11,8 @@ class Tadpole extends Enemy {
 
 	public static inline var IDLE_TIME:Float = 2.5;
 
+	public var countdown:Float = 1;
+
 	public function new(x:Float, y:Float, monsterData:MonsterData,
 			player:Player) {
 		super(x, y, null, monsterData, player);
@@ -23,8 +25,9 @@ class Tadpole extends Enemy {
 
 	override public function update(elapsed:Float) {
 		super.update(elapsed);
-		if (!this.isOnScreen()) {
+		if (!this.isOnScreen() && countdown <= 0) {
 			this.kill();
 		}
+		countdown -= elapsed;
 	}
 }

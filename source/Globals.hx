@@ -1,5 +1,5 @@
 class Globals {
-	public static inline var GAME_TITLE = 'LK Game';
+	public static inline var GAME_TITLE = 'Pathing Game';
 	public static inline var GAME_SAVE_SLOTS:Int = 5;
 
 	public static inline var TEXT_START = 'Start';
