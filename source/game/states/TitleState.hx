@@ -196,7 +196,7 @@ UP/DOWN to adjust speed.
 		var textSize = 12;
 		var creditsText = new FlxText(FlxG.width - textWidth,
 			FlxG.height - 100, textWidth, 'Created by KinoCreates', textSize);
-		add(creditsText);
+		// add(creditsText);
 	}
 
 	public function createVersion() {
