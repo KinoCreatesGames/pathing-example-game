@@ -1,0 +1,236 @@
+{
+	"__header__": {
+		"fileType": "LDtk Project JSON",
+		"app": "LDtk",
+		"doc": "https://ldtk.io/json",
+		"schema": "https://ldtk.io/files/JSON_SCHEMA.json",
+		"appAuthor": "Sebastien 'deepnight' Benard",
+		"appVersion": "0.7.2",
+		"url": "https://ldtk.io"
+	},
+	"jsonVersion": "0.7.2",
+	"defaultPivotX": 0,
+	"defaultPivotY": 0,
+	"defaultGridSize": 16,
+	"bgColor": "#676877",
+	"defaultLevelBgColor": "#7F8093",
+	"nextUid": 7,
+	"minifyJson": false,
+	"externalLevels": false,
+	"exportTiled": true,
+	"exportPng": false,
+	"pngFilePattern": null,
+	"backupOnSave": false,
+	"backupLimit": 10,
+	"worldLayout": "Free",
+	"worldGridWidth": 256,
+	"worldGridHeight": 256,
+	"defs": {
+		"layers": [
+			{
+				"__type": "Entities",
+				"identifier": "Player",
+				"type": "Entities",
+				"uid": 5,
+				"gridSize": 16,
+				"displayOpacity": 1,
+				"pxOffsetX": 0,
+				"pxOffsetY": 0,
+				"intGridValues": [{ "identifier": null, "color": "#000000" }],
+				"autoTilesetDefUid": null,
+				"autoRuleGroups": [],
+				"autoSourceLayerDefUid": null,
+				"tilesetDefUid": null,
+				"tilePivotX": 0,
+				"tilePivotY": 0
+			},
+			{
+				"__type": "Tiles",
+				"identifier": "Floor",
+				"type": "Tiles",
+				"uid": 1,
+				"gridSize": 16,
+				"displayOpacity": 1,
+				"pxOffsetX": 0,
+				"pxOffsetY": 0,
+				"intGridValues": [{ "identifier": null, "color": "#000000" }],
+				"autoTilesetDefUid": null,
+				"autoRuleGroups": [],
+				"autoSourceLayerDefUid": null,
+				"tilesetDefUid": 2,
+				"tilePivotX": 0,
+				"tilePivotY": 0
+			}
+		],
+		"entities": [
+			{
+				"identifier": "Player",
+				"uid": 3,
+				"width": 16,
+				"height": 16,
+				"color": "#32AFF3",
+				"renderMode": "Ellipse",
+				"showName": true,
+				"tilesetId": null,
+				"tileId": null,
+				"tileRenderMode": "Stretch",
+				"maxPerLevel": 0,
+				"limitBehavior": "DiscardOldOnes",
+				"pivotX": 0,
+				"pivotY": 0,
+				"fieldDefs": [
+					{
+						"identifier": "path",
+						"__type": "Array<Point>",
+						"uid": 4,
+						"type": "F_Point",
+						"isArray": true,
+						"canBeNull": true,
+						"arrayMinLength": null,
+						"arrayMaxLength": null,
+						"editorDisplayMode": "PointPath",
+						"editorDisplayPos": "Above",
+						"editorAlwaysShow": true,
+						"min": null,
+						"max": null,
+						"regex": null,
+						"acceptFileTypes": null,
+						"defaultOverride": null
+					}
+				]
+			},
+			{
+				"identifier": "SpawnPoint",
+				"uid": 6,
+				"width": 16,
+				"height": 16,
+				"color": "#EE04FF",
+				"renderMode": "Rectangle",
+				"showName": true,
+				"tilesetId": null,
+				"tileId": null,
+				"tileRenderMode": "Stretch",
+				"maxPerLevel": 0,
+				"limitBehavior": "DiscardOldOnes",
+				"pivotX": 0,
+				"pivotY": 0,
+				"fieldDefs": []
+			}
+		],
+		"tilesets": [
+			{
+				"identifier": "Floor_tileset",
+				"uid": 2,
+				"relPath": "../images/floor-tileset.png",
+				"pxWid": 64,
+				"pxHei": 96,
+				"tileGridSize": 16,
+				"spacing": 0,
+				"padding": 0,
+				"savedSelections": [],
+				"cachedPixelData": {
+					"opaqueTiles": "111111100100000000000000",
+					"averageColors": "f4a7f4a7f4a7f4a7fea5fb65f889f889f778f9995a680000000000000000000000000000000000000000000000000000"
+				}
+			}
+		],
+		"enums": [],
+		"externalEnums": []
+	},
+	"levels": [
+		{
+			"identifier": "LevelOne",
+			"uid": 0,
+			"worldX": 0,
+			"worldY": 0,
+			"pxWid": 512,
+			"pxHei": 368,
+			"__bgColor": "#7F8093",
+			"bgColor": null,
+			"bgRelPath": null,
+			"bgPos": null,
+			"bgPivotX": 0.5,
+			"bgPivotY": 0.5,
+			"__bgPos": null,
+			"externalRelPath": null,
+			"layerInstances": [
+				{
+					"__identifier": "Player",
+					"__type": "Entities",
+					"__cWid": 32,
+					"__cHei": 23,
+					"__gridSize": 16,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 0,
+					"layerDefUid": 5,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"intGrid": [],
+					"autoLayerTiles": [],
+					"seed": 9295849,
+					"gridTiles": [],
+					"entityInstances": [{ "__identifier": "Player", "__grid": [15,7], "__pivot": [0,0], "__tile": null, "defUid": 3, "px": [240,112], "fieldInstances": [{
+						"__identifier": "path",
+						"__value": [
+							{ "cx": 2, "cy": 7 },
+							{ "cx": 2, "cy": 21 },
+							{ "cx": 29, "cy": 21 },
+							{ "cx": 29, "cy": 7 },
+							{ "cx": 2, "cy": 7 }
+						],
+						"__type": "Array<Point>",
+						"defUid": 4,
+						"realEditorValues": [
+							{
+								"id": "V_String",
+								"params": ["2,7"]
+							},
+							{
+								"id": "V_String",
+								"params": ["2,21"]
+							},
+							{
+								"id": "V_String",
+								"params": ["29,21"]
+							},
+							{
+								"id": "V_String",
+								"params": ["29,7"]
+							},
+							{
+								"id": "V_String",
+								"params": ["2,7"]
+							}
+						]
+					}] }]
+				},
+				{
+					"__identifier": "Floor",
+					"__type": "Tiles",
+					"__cWid": 32,
+					"__cHei": 23,
+					"__gridSize": 16,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": 2,
+					"__tilesetRelPath": "../images/floor-tileset.png",
+					"levelId": 0,
+					"layerDefUid": 1,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"intGrid": [],
+					"autoLayerTiles": [],
+					"seed": 2155547,
+					"gridTiles": [],
+					"entityInstances": []
+				}
+			],
+			"__neighbours": []
+		}
+	]
+}
