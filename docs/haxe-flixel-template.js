@@ -888,7 +888,7 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "11";
+	app.meta.h["build"] = "12";
 	app.meta.h["company"] = "KinoCreatesGames";
 	app.meta.h["file"] = "haxe-flixel-template";
 	app.meta.h["name"] = "Pathing Game";
@@ -48447,6 +48447,7 @@ game_states_TileState.__super__ = game_states_BaseTileState;
 game_states_TileState.prototype = $extend(game_states_BaseTileState.prototype,{
 	createLevelInformation: function() {
 		flixel_FlxG.autoPause = false;
+		this.spawnTimer = 4;
 		game_states_BaseTileState.prototype.createLevelInformation.call(this);
 		var tileLayer = this.map.getLayer("Floor");
 		this.gameTime = this.getGameTime();
@@ -48537,7 +48538,7 @@ game_states_TileState.prototype = $extend(game_states_BaseTileState.prototype,{
 				Chance = 50;
 			}
 			var sign = flixel_FlxG.random.float(0,100) < Chance ? 1 : -1;
-			haxe_Log.trace("Spawn Enemy",{ fileName : "source/game/states/TileState.hx", lineNumber : 125, className : "game.states.TileState", methodName : "updateSpawnEnemies"});
+			haxe_Log.trace("Spawn Enemy",{ fileName : "source/game/states/TileState.hx", lineNumber : 126, className : "game.states.TileState", methodName : "updateSpawnEnemies"});
 			var spawnPointX = Math.random() * (flixel_FlxG.width / 2) * sign;
 			var spawnPointY = Math.random() * (flixel_FlxG.height / 2) * sign;
 			var topBot = [this.top,this.bottom];
@@ -67649,7 +67650,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 899591;
+	this.version = 279403;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
