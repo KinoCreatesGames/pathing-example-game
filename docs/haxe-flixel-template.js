@@ -888,7 +888,7 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "12";
+	app.meta.h["build"] = "14";
 	app.meta.h["company"] = "KinoCreatesGames";
 	app.meta.h["file"] = "haxe-flixel-template";
 	app.meta.h["name"] = "Pathing Game";
@@ -48447,7 +48447,7 @@ game_states_TileState.__super__ = game_states_BaseTileState;
 game_states_TileState.prototype = $extend(game_states_BaseTileState.prototype,{
 	createLevelInformation: function() {
 		flixel_FlxG.autoPause = false;
-		this.spawnTimer = 4;
+		this.spawnTimer = 0;
 		game_states_BaseTileState.prototype.createLevelInformation.call(this);
 		var tileLayer = this.map.getLayer("Floor");
 		this.gameTime = this.getGameTime();
@@ -48630,7 +48630,6 @@ game_states_TitleState.prototype = $extend(flixel_FlxState.prototype,{
 		this.createPressStart();
 		this.createButtons();
 		this.createControls();
-		this.createCredits();
 		this.createVersion();
 		flixel_FlxState.prototype.create.call(this);
 	}
@@ -48659,37 +48658,9 @@ game_states_TitleState.prototype = $extend(flixel_FlxState.prototype,{
 		var _g = this.playButton;
 		_g.set_y(_g.y + y);
 		y += 40;
-		this.continueButton = new game_ui_TextButton(0,0,"Continue",12,$bind(this,this.clickContinue));
-		this.continueButton.hoverColor = -8714200;
-		this.continueButton.clickColor = -8714200;
-		this.continueButton.screenCenter();
-		var _g = this.continueButton;
-		_g.set_y(_g.y + y);
-		y += 40;
-		this.optionsButton = new game_ui_TextButton(0,0,"Options",12,$bind(this,this.clickOptions));
-		this.optionsButton.hoverColor = -8714200;
-		this.optionsButton.clickColor = -8714200;
-		this.optionsButton.screenCenter();
-		var _g = this.optionsButton;
-		_g.set_y(_g.y + y);
-		y += 40;
-		this.creditsButton = new game_ui_TextButton(0,0,"Credits",12,$bind(this,this.clickCredits));
-		this.creditsButton.hoverColor = -8714200;
-		this.creditsButton.clickColor = -8714200;
-		this.creditsButton.screenCenter();
-		var _g = this.creditsButton;
-		_g.set_y(_g.y + y);
-		y += 40;
 		this.playButton.canClick = false;
 		this.playButton.set_alpha(0);
-		this.continueButton.canClick = false;
-		this.continueButton.set_alpha(0);
-		this.optionsButton.canClick = false;
-		this.optionsButton.set_alpha(0);
-		this.creditsButton.canClick = false;
-		this.creditsButton.set_alpha(0);
 		this.add(this.playButton);
-		this.add(this.creditsButton);
 	}
 	,update: function(elapsed) {
 		flixel_FlxState.prototype.update.call(this,elapsed);
@@ -48719,58 +48690,10 @@ game_states_TitleState.prototype = $extend(flixel_FlxState.prototype,{
 				flixel_util_FlxSpriteUtil.alphaTween(sprite1,f);
 			};
 			flixel_tweens_FlxTween.num(sprite.alpha,1,Duration,{ onComplete : null},tmp);
-			if(this.playButton.alpha >= .9) {
-				var sprite = this.continueButton;
-				var Duration = fadeTime;
-				if(Duration == null) {
-					Duration = 1;
-				}
-				if(null) {
-					sprite.set_alpha(0);
-				}
-				var sprite2 = sprite;
-				var tmp = function(f) {
-					flixel_util_FlxSpriteUtil.alphaTween(sprite2,f);
-				};
-				flixel_tweens_FlxTween.num(sprite.alpha,1,Duration,{ onComplete : null},tmp);
-			}
-			if(this.continueButton.alpha >= .9) {
-				var sprite = this.optionsButton;
-				var Duration = fadeTime;
-				if(Duration == null) {
-					Duration = 1;
-				}
-				if(null) {
-					sprite.set_alpha(0);
-				}
-				var sprite3 = sprite;
-				var tmp = function(f) {
-					flixel_util_FlxSpriteUtil.alphaTween(sprite3,f);
-				};
-				flixel_tweens_FlxTween.num(sprite.alpha,1,Duration,{ onComplete : null},tmp);
-			}
-			if(this.optionsButton.alpha >= .9) {
-				var sprite = this.creditsButton;
-				var Duration = fadeTime;
-				if(Duration == null) {
-					Duration = 1;
-				}
-				if(null) {
-					sprite.set_alpha(0);
-				}
-				var sprite4 = sprite;
-				var tmp = function(f) {
-					flixel_util_FlxSpriteUtil.alphaTween(sprite4,f);
-				};
-				flixel_tweens_FlxTween.num(sprite.alpha,1,Duration,{ onComplete : null},tmp);
-				this.completeFadeStart = true;
-			}
+			this.completeFadeStart = true;
 		}
 		if(this.completeFadeStart) {
 			this.playButton.canClick = true;
-			this.continueButton.canClick = true;
-			this.optionsButton.canClick = true;
-			this.creditsButton.canClick = true;
 		}
 	}
 	,clickStart: function() {
@@ -48778,12 +48701,6 @@ game_states_TitleState.prototype = $extend(flixel_FlxState.prototype,{
 		if(flixel_FlxG.game._state.switchTo(nextState)) {
 			flixel_FlxG.game._requestedState = nextState;
 		}
-	}
-	,clickContinue: function() {
-	}
-	,clickOptions: function() {
-	}
-	,clickCredits: function() {
 	}
 	,createControls: function() {
 		var textWidth = 200;
@@ -67650,7 +67567,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 279403;
+	this.version = 173828;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
