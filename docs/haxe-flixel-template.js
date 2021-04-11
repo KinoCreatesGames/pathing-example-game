@@ -888,13 +888,13 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "2";
+	app.meta.h["build"] = "10";
 	app.meta.h["company"] = "KinoCreatesGames";
 	app.meta.h["file"] = "haxe-flixel-template";
-	app.meta.h["name"] = "LK Game";
+	app.meta.h["name"] = "Pathing Game";
 	app.meta.h["packageName"] = "com.example.myapp";
 	app.meta.h["version"] = "0.0.1";
-	var attributes = { allowHighDPI : false, alwaysOnTop : false, borderless : false, element : null, frameRate : 60, height : 432, hidden : false, maximized : false, minimized : false, parameters : { }, resizable : true, title : "LK Game", width : 592, x : null, y : null};
+	var attributes = { allowHighDPI : false, alwaysOnTop : false, borderless : false, element : null, frameRate : 60, height : 432, hidden : false, maximized : false, minimized : false, parameters : { }, resizable : true, title : "Pathing Game", width : 592, x : null, y : null};
 	attributes.context = { antialiasing : 0, background : 0, colorDepth : 32, depth : true, hardware : true, stencil : true, type : null, vsync : false};
 	if(app.__window == null) {
 		if(config != null) {
@@ -48193,6 +48193,7 @@ game_char_Player.prototype = $extend(game_char_Actor.prototype,{
 	,__class__: game_char_Player
 });
 var game_char_Tadpole = function(x,y,monsterData,player) {
+	this.countdown = 1;
 	game_char_Enemy.call(this,x,y,null,monsterData,player);
 	this.makeGraphic(16,16,-65536,true);
 };
@@ -48205,9 +48206,10 @@ game_char_Tadpole.prototype = $extend(game_char_Enemy.prototype,{
 	}
 	,update: function(elapsed) {
 		game_char_Enemy.prototype.update.call(this,elapsed);
-		if(!this.isOnScreen()) {
+		if(!this.isOnScreen() && this.countdown <= 0) {
 			this.kill();
 		}
+		this.countdown -= elapsed;
 	}
 	,__class__: game_char_Tadpole
 });
@@ -48605,7 +48607,7 @@ game_states_TitleState.prototype = $extend(flixel_FlxState.prototype,{
 	create: function() {
 		flixel_FlxG.mouse.set_visible(true);
 		this.set_bgColor(-5058850);
-		var text = new flixel_text_FlxText(0,0,-1,"LK Game",32);
+		var text = new flixel_text_FlxText(0,0,-1,"Pathing Game",32);
 		this.add(text);
 		text.set_alignment("center");
 		text.screenCenter();
@@ -48778,7 +48780,6 @@ game_states_TitleState.prototype = $extend(flixel_FlxState.prototype,{
 		var textWidth = 200;
 		var textSize = 12;
 		var creditsText = new flixel_text_FlxText(flixel_FlxG.width - textWidth,flixel_FlxG.height - 100,textWidth,"Created by KinoCreates",textSize);
-		this.add(creditsText);
 	}
 	,createVersion: function() {
 		var textWidth = 200;
@@ -67634,7 +67635,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 332195;
+	this.version = 349441;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
@@ -109108,7 +109109,7 @@ DepotData.Actors_Lukia = { spd : 100, name : "Lukia", guid : "bca8c6bc-e9b2-4f10
 DepotData.Actors = { name : "actors", lines : [{ spd : 100, name : "Lukia", guid : "bca8c6bc-e9b2-4f10-b742-c9bf2da0a5bb", sprite : "", id : "0", health : 3}], isProps : false, hidden : false, guid : "496174ec-839f-429c-a202-a69385e97532", displayColumn : "id", description : "description of what the sheet is", configurable : { name : "text", description : "text", displayColumn : "columnSelect@name", "columnSelect@name@displayColumn" : { allowedTypes : ["int","float","text","longtext"]}}};
 DepotData.Enemy_Tadpole = { spd : 100, name : "Tadpole", guid : "855152ef-e6ef-4dc8-88fc-da1031269bff", sprite : "", id : "0", atk : 1, health : 1};
 DepotData.Enemy = { name : "Enemy", lines : [{ spd : 100, name : "Tadpole", guid : "855152ef-e6ef-4dc8-88fc-da1031269bff", sprite : "", id : "0", atk : 1, health : 1}], isProps : false, hidden : false, guid : "bc615bb1-bb8d-4558-8c19-7118b9317d33", displayColumn : "id", description : "Enemies in the game", configurable : { name : "text", description : "text", displayColumn : "columnSelect@name", "columnSelect@name@displayColumn" : { allowedTypes : ["int","float","text","longtext"]}}};
-Globals.GAME_TITLE = "LK Game";
+Globals.GAME_TITLE = "Pathing Game";
 Globals.GAME_SAVE_SLOTS = 5;
 Globals.TEXT_START = "Start";
 Globals.TEXT_CONTINUE = "Continue";
