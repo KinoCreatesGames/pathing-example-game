@@ -122,7 +122,7 @@ class TileState extends BaseTileState {
 	public function updateSpawnEnemies(elapsed:Float) {
 		if (spawnTimer <= 0) {
 			var sign = FlxG.random.sign();
-			// trace(sign);
+			trace('Spawn Enemy');
 			var spawnPointX = (Math.random() * (FlxG.width / 2)) * sign;
 			var spawnPointY = (Math.random() * (FlxG.height / 2)) * sign;
 			var topBot = [top, bottom];
