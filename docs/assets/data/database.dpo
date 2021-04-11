@@ -1,0 +1,208 @@
+{
+    "sheets": [
+        {
+            "name": "actors",
+            "description": "description of what the sheet is",
+            "displayColumn": "id",
+            "guid": "496174ec-839f-429c-a202-a69385e97532",
+            "columns": [
+                {
+                    "typeStr": "int",
+                    "guid": "389358a0-4a58-457b-9262-ab13d80d14f3",
+                    "description": "The amount of health the player has.",
+                    "name": "health",
+                    "min": -10000,
+                    "max": 100000,
+                    "defaultValue": 3,
+                    "iconName": "newInt",
+                    "configurable": {
+                        "name": "text",
+                        "description": "text",
+                        "min": "int",
+                        "max": "int",
+                        "defaultValue": "int"
+                    }
+                },
+                {
+                    "typeStr": "int",
+                    "guid": "e2f767b9-22c2-41ad-98b8-f31923aef330",
+                    "description": "How fast the player moves across the screen",
+                    "name": "spd",
+                    "min": -10000,
+                    "max": 100000,
+                    "defaultValue": 100,
+                    "iconName": "newInt",
+                    "configurable": {
+                        "name": "text",
+                        "description": "text",
+                        "min": "int",
+                        "max": "int",
+                        "defaultValue": "int"
+                    }
+                },
+                {
+                    "typeStr": "text",
+                    "guid": "eeb14884-da06-452e-aaa2-134e1cad1764",
+                    "name": "name",
+                    "description": "Name of the actor",
+                    "defaultValue": "Lukia",
+                    "iconName": "newText",
+                    "configurable": {
+                        "name": "text",
+                        "description": "text",
+                        "defaultValue": "text"
+                    }
+                },
+                {
+                    "typeStr": "image",
+                    "guid": "b4945318-d6d2-4607-bc07-73b56dfac8a6",
+                    "name": "sprite",
+                    "description": "The sprite used for the actor",
+                    "defaultValue": "",
+                    "iconName": "newImage",
+                    "configurable": {
+                        "name": "text",
+                        "description": "text",
+                        "defaultValue": "text"
+                    }
+                }
+            ],
+            "lines": [
+                {
+                    "guid": "bca8c6bc-e9b2-4f10-b742-c9bf2da0a5bb",
+                    "id": "0",
+                    "health": 3,
+                    "spd": 100,
+                    "name": "Lukia",
+                    "sprite": ""
+                }
+            ],
+            "hidden": false,
+            "isProps": false,
+            "configurable": {
+                "name": "text",
+                "description": "text",
+                "displayColumn": "columnSelect@name",
+                "columnSelect@name@displayColumn": {
+                    "allowedTypes": [
+                        "int",
+                        "float",
+                        "text",
+                        "longtext"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Enemy",
+            "description": "Enemies in the game",
+            "displayColumn": "id",
+            "guid": "bc615bb1-bb8d-4558-8c19-7118b9317d33",
+            "columns": [
+                {
+                    "typeStr": "int",
+                    "guid": "2a9b525e-6b42-4620-989c-a335e8d63de0",
+                    "description": "Amount of atk power the enemy has.",
+                    "name": "atk",
+                    "min": -10000,
+                    "max": 100000,
+                    "defaultValue": 1,
+                    "iconName": "newInt",
+                    "configurable": {
+                        "name": "text",
+                        "description": "text",
+                        "min": "int",
+                        "max": "int",
+                        "defaultValue": "int"
+                    }
+                },
+                {
+                    "typeStr": "int",
+                    "guid": "e9d89764-9596-460a-89df-c38cde26d039",
+                    "description": "How fast the enemy moves across screen.",
+                    "name": "spd",
+                    "min": -10000,
+                    "max": 100000,
+                    "defaultValue": 0,
+                    "iconName": "newInt",
+                    "configurable": {
+                        "name": "text",
+                        "description": "text",
+                        "min": "int",
+                        "max": "int",
+                        "defaultValue": "int"
+                    }
+                },
+                {
+                    "typeStr": "text",
+                    "guid": "35173eb0-5dfb-476f-8fd5-f8bdf3f8cf85",
+                    "name": "name",
+                    "description": "Name of the enemy",
+                    "defaultValue": "Name",
+                    "iconName": "newText",
+                    "configurable": {
+                        "name": "text",
+                        "description": "text",
+                        "defaultValue": "text"
+                    }
+                },
+                {
+                    "typeStr": "int",
+                    "guid": "3a833ff6-1eee-4bab-ad3d-37b60d69931a",
+                    "description": "Health of the enemy",
+                    "name": "health",
+                    "min": -10000,
+                    "max": 100000,
+                    "defaultValue": 1,
+                    "iconName": "newInt",
+                    "configurable": {
+                        "name": "text",
+                        "description": "text",
+                        "min": "int",
+                        "max": "int",
+                        "defaultValue": "int"
+                    }
+                },
+                {
+                    "typeStr": "image",
+                    "guid": "1e4dc976-5362-4db3-a55b-8d920b139631",
+                    "name": "sprite",
+                    "description": "Image of the monster in game.",
+                    "defaultValue": "",
+                    "iconName": "newImage",
+                    "configurable": {
+                        "name": "text",
+                        "description": "text",
+                        "defaultValue": "text"
+                    }
+                }
+            ],
+            "lines": [
+                {
+                    "guid": "855152ef-e6ef-4dc8-88fc-da1031269bff",
+                    "id": "0",
+                    "atk": 1,
+                    "spd": 100,
+                    "name": "Tadpole",
+                    "health": 1,
+                    "sprite": ""
+                }
+            ],
+            "hidden": false,
+            "isProps": false,
+            "configurable": {
+                "name": "text",
+                "description": "text",
+                "displayColumn": "columnSelect@name",
+                "columnSelect@name@displayColumn": {
+                    "allowedTypes": [
+                        "int",
+                        "float",
+                        "text",
+                        "longtext"
+                    ]
+                }
+            }
+        }
+    ]
+}
